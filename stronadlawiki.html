@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wszystkiego najlepszego, Brzdącu ❤️</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255,255,255,.08), transparent 25%),
+                radial-gradient(circle at 80% 70%, rgba(255,255,255,.06), transparent 25%),
+                linear-gradient(135deg, #120d18, #26152d, #0e0b13);
+            color: #f8edf5;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Gwiazdki */
+        .stars {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            opacity: .5;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: .2; transform: scale(.8); }
+            50% { opacity: .9; transform: scale(1.3); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            width: min(1000px, 92%);
+            margin: auto;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .hero-content {
+            animation: appear 1.5s ease forwards;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .small-title {
+            color: #d9a6c7;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: clamp(55px, 11vw, 120px);
+            font-weight: 400;
+            line-height: .9;
+            background: linear-gradient(90deg, #fff, #e8b9d6, #fff);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 25px;
+        }
+
+        .age {
+            font-family: Arial, sans-serif;
+            font-size: clamp(70px, 15vw, 150px);
+            font-weight: 800;
+            color: transparent;
+            -webkit-text-stroke: 1px #dca6c7;
+            opacity: .8;
+            line-height: .8;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #cbbac8;
+            margin-top: 35px;
+        }
+
+        .scroll {
+            margin-top: 70px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #8f788d;
+        }
+
+        .arrow {
+            display: block;
+            font-size: 25px;
+            margin-top: 10px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%,100% { transform: translateY(0); }
+            50% { transform: translateY(8px); }
+        }
+
+        /* SEKCJA ŻYCZEŃ */
+
+        .card {
+            margin: 50px auto 150px;
+            padding: clamp(35px, 7vw, 80px);
+            background: rgba(255,255,255,.045);
+            border: 1px solid rgba(255,255,255,.1);
+            border-radius: 30px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 30px 100px rgba(0,0,0,.35);
+        }
+
+        .card-label {
+            font-family: Arial, sans-serif;
+            color: #d9a6c7;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 12px;
+            margin-bottom: 30px;
+        }
+
+        .card h2 {
+            font-size: clamp(32px, 5vw, 55px);
+            font-weight: 400;
+            margin-bottom: 35px;
+        }
+
+        .card p {
+            font-size: 19px;
+            line-height: 1.9;
+            color: #ded2dc;
+            margin-bottom: 22px;
+        }
+
+        .highlight {
+            color: #f1b9d9;
+            font-style: italic;
+        }
+
+        /* LISTA */
+
+        .wishes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-top: 45px;
+        }
+
+        .wish {
+            padding: 28px;
+            border-radius: 20px;
+            background: rgba(255,255,255,.035);
+            border: 1px solid rgba(255,255,255,.07);
+            transition: .35s;
+        }
+
+        .wish:hover {
+            transform: translateY(-7px);
+            background: rgba(255,255,255,.07);
+            border-color: rgba(221,166,200,.35);
+        }
+
+        .wish-number {
+            font-family: Arial, sans-serif;
+            color: #d9a6c7;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .wish h3 {
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 10px;
+        }
+
+        .wish p {
+            font-size: 15px;
+            line-height: 1.6;
+            margin: 0;
+            color: #aFA3ad;
+        }
+
+        /* BRZDĄC */
+
+        .brzdac {
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .brzdac .quote {
+            font-size: clamp(30px, 5vw, 60px);
+            font-style: italic;
+            line-height: 1.2;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .brzdac .quote span {
+            color: #e8afd1;
+        }
+
+        .brzdac small {
+            display: block;
+            margin-top: 30px;
+            color: #8f788d;
+            font-family: Arial, sans-serif;
+            letter-spacing: 2px;
+        }
+
+        /* STOPKA */
+
+        footer {
+            text-align: center;
+            padding: 60px 20px 80px;
+            color: #806e7d;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: #d6a4c2;
+        }
+
+        /* Serduszko */
+
+        .heart {
+            display: inline-block;
+            color: #e6a8cb;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%,100% { transform: scale(1); }
+            15% { transform: scale(1.18); }
+            30% { transform: scale(1); }
+        }
+
+        @media(max-width:600px) {
+            .card p {
+                font-size: 17px;
+            }
+
+            .hero {
+                min-height: 90vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<section class="hero">
+    <div class="hero-content">
+
+        <div class="small-title">
+            Dzisiaj wydarzyło się coś ważnego
+        </div>
+
+        <h1>Wiktoria</h1>
+
+        <div class="age">18</div>
+
+        <div class="subtitle">
+            Oficjalnie przestajesz być dzieckiem.<br>
+            Nieoficjalnie... dla mnie nadal jesteś Brzdącem.
+        </div>
+
+        <div class="scroll">
+            przewiń niżej
+            <span class="arrow">↓</span>
+        </div>
+
+    </div>
+</section>
+
+
+<main class="container">
+
+    <section class="card">
+
+        <div class="card-label">
+            Od Kuby
+        </div>
+
+        <h2>
+            Droga Wiktorio,
+        </h2>
+
+        <p>
+            no i stało się.
+            <span class="highlight">18 lat.</span>
+        </p>
+
+        <p>
+            Z tej okazji chciałbym Ci życzyć przede wszystkim tego,
+            żebyś nigdy nie zgubiła tej swojej wyjątkowości.
+            Żebyś zawsze miała obok siebie ludzi, przy których możesz
+            być w stu procentach sobą — bez udawania, bez zastanawiania
+            się, czy wypada.
+        </p>
+
+        <p>
+            Życzę Ci mnóstwa powodów do śmiechu, pięknych wspomnień,
+            odwagi do spełniania nawet tych trochę szalonych marzeń
+            i spokoju wtedy, kiedy życie zacznie robić się trochę
+            bardziej skomplikowane.
+        </p>
+
+        <p>
+            I przede wszystkim — żeby dorosłość nie zabrała Ci tego,
+            co w Tobie najlepsze.
+            Bo metryka może mówić <span class="highlight">18</span>,
+            ale pewnych rzeczy zmieniać nie trzeba.
+        </p>
+
+        <div class="wishes">
+
+            <div class="wish">
+                <div class="wish-number">01</div>
+                <h3>Marzeń</h3>
+                <p>
+                    Takich, które sprawiają, że naprawdę chce Ci się
+                    rano wstawać.
+                </p>
+            </div>
+
+            <div class="wish">
+                <div class="wish-number">02</div>
+                <h3>Szczęścia</h3>
+                <p>
+                    Tego prawdziwego — w małych chwilach i wielkich
+                    momentach.
+                </p>
+            </div>
+
+            <div class="wish">
+                <div class="wish-number">03</div>
+                <h3>Ludzi</h3>
+                <p>
+                    Tylko tych, przy których możesz być sobą
+                    i śmiać się bez powodu.
+                </p>
+            </div>
+
+            <div class="wish">
+                <div class="wish-number">04</div>
+                <h3>Przygód</h3>
+                <p>
+                    Żeby za kilka lat było co wspominać i z czego
+                    śmiać się po raz kolejny.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="brzdac">
+
+        <div class="quote">
+            „18 lat to podobno dorosłość...
+            <br>
+            ale spokojnie, <span>Brzdącu.</span>
+            <br>
+            Nie musisz od razu wszystkiego ogarniać.”
+        </div>
+
+        <small>
+            — Kuba
+        </small>
+
+    </section>
+
+
+    <section class="card">
+
+        <div class="card-label">
+            I jeszcze jedno...
+        </div>
+
+        <h2>
+            Wszystkiego najlepszego ❤️
+        </h2>
+
+        <p>
+            Mam nadzieję, że ten dzień będzie dokładnie taki,
+            jaki powinien być — pełen uśmiechu, dobrych ludzi
+            i chwil, które zostaną z Tobą na długo.
+        </p>
+
+        <p>
+            Korzystaj z życia, rób swoje, śmiej się jak najwięcej
+            i pamiętaj, że nawet jeśli od dzisiaj oficjalnie
+            jesteś dorosła...
+        </p>
+
+        <p style="font-size: 24px; color: #efb7d7;">
+            ...to dla Kuby i tak pozostaniesz Brzdącem.
+        </p>
+
+        <p style="margin-top:45px;">
+            Sto lat, Wiktoria.
+            <span class="heart">♥</span>
+        </p>
+
+    </section>
+
+</main>
+
+
+<footer>
+    Stworzone specjalnie dla <strong>Wiktorii</strong>
+    <br><br>
+    od Kuby
+</footer>
+
+
+<script>
+    // Losowe gwiazdki w tle
+    const stars = document.querySelector(".stars");
+
+    for (let i = 0; i < 90; i++) {
+        const star = document.createElement("div");
+        star.classList.add("star");
+
+        star.style.left = Math.random() * 100 + "%";
+        star.style.top = Math.random() * 100 + "%";
+        star.style.animationDelay = Math.random() * 3 + "s";
+        star.style.opacity = Math.random();
+
+        stars.appendChild(star);
+    }
+</script>
+
+</body>
+</html>
